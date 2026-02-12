@@ -1,0 +1,59 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有路径
+            allowed-origins:
+              - "http://localhost:5173"  # 允许的域名（可配置多个）
+              - "https://your-domain.com"
+              - "http://localhost:5175"
+            allowed-methods: # 允许的 HTTP 方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowed-headers: "*"       # 允许的请求头
+            allow-credentials: true    # 是否允许携带 Cookie
+            exposed-headers: # 允许客户端访问的响应头
+              - Authorization
+              - Content-Type
+            max-age: 3600               # 预检请求缓存时间（秒）
+      whitelist:
+        - /user/login         # 登录接口
+        - /user/register
+        - /public/**          # 所有公共资源
+        - /swagger-ui/**      # Swagger 文档
+        - /v3/api-docs        # OpenAPI 文档
+        - /sections/list
+        - /blog/page
+        - /blog/rank
+        #- /blog//detail/**
+        - /video/page
+        - /chat/**
+        - /ws/**
+        - /questions/page
+        #- /**
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**,/admin/user/**
+
+        - id: blog-service
+          uri: lb://blog-service
+          predicates:
+            - Path=/blog/**,/sections/**,/ebook/**,/video/**,/chat/**,/questions/**,/comment/**,/votes/**,/follow/**,/dashboard/**
+
+        - id: file-service
+          uri: lb://file-service
+          predicates:
+            - Path=/file/**
+
+        - id: chat-service
+          uri: lb://chat-service
+          predicates:
+            - Path=/ws/**
+
+

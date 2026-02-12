@@ -1,0 +1,14 @@
+@import './base.css';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+} 

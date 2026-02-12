@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/code_share
+    username: root
+    password: 123456
+  # session 配置
+  session:
+    timeout: 2592000
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000 #单位毫秒
+        readTimeout: 10000 #单位毫秒
+
+ai:
+  apiKey: 2cbc92320ca27a40dce15712697ec96b.tnxQzvzaxqnHF5fo
+  url: https://open.bigmodel.cn/api/paas/v4/chat/completions

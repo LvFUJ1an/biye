@@ -1,0 +1,8 @@
+com\code\file\service\UploadService.class
+com\code\file\controller\DownloadController.class
+com\code\file\controller\UploadController.class
+com\code\file\FileApplication.class
+com\code\file\util\FileUploadUtil.class
+com\code\file\config\MinioConfig.class
+com\code\file\service\impl\UploadServiceImpl.class
+com\code\file\client\EBookFeignClient.class

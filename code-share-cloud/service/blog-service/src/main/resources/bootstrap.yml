@@ -1,0 +1,14 @@
+server:
+  port: 18003
+spring:
+  application:
+    name: blog-service
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
